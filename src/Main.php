@@ -1,5 +1,5 @@
 <?php
-namespace Yakub\WorkingTime;
+namespace Yakub\CronTime;
 
 /**
  * Main class

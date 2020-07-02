@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Yakub\WorkingTime\Model\Cron;
+use Yakub\CronTime\Model\Cron;
 
 final class CronTest extends TestCase {
 

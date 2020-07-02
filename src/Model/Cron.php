@@ -1,5 +1,5 @@
 <?php
-namespace Yakub\WorkingTime\Model;
+namespace Yakub\CronTime\Model;
 
 /**
  * Link: http://www.nncron.ru/help/EN/working/cron-format.htm

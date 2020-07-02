@@ -1,11 +1,11 @@
 {
-	"name": "yakub/working-time",
+	"name": "yakub/cron-time",
 	"type": "library",
 	"description": "",
 	"license": "Apache-2.0",
 	"autoload": {
 		"psr-4": {
-			"Yakub\\WorkingTime\\": "src"
+			"Yakub\\CronTime\\": "src"
 		}
 	},
 	"scripts": {
