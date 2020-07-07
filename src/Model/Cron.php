@@ -1,5 +1,5 @@
 <?php
-namespace Yakub\WorkingTime\Model;
+namespace Yakub\CronTime\Model;
 
 /**
  * Link: http://www.nncron.ru/help/EN/working/cron-format.htm
@@ -133,6 +133,7 @@ final class Cron {
 
         return $this->firstDay;
     }
+
     public function getLastRunDateTime(): \DateTime {
         if (is_null($this->lastDay)) {
             $lastDay =
@@ -149,11 +150,11 @@ final class Cron {
         return $this->lastDay;
     }
 
-    public function isExecutable(string $onTime = null, int $level = Cron::EXECUTABLE_LEVEL_ALL): bool {
+    public function isExecutable(string $time = 'now', int $level = Cron::EXECUTABLE_LEVEL_ALL): bool {
         try {
-            $date = new \DateTime(is_null($onTime) ? 'now' : $onTime);
+            $date = new \DateTime($time);
         } catch (\Exception $e) {
-            throw new \InvalidArgumentException('Invalid onTime value: '.$onTime);
+            throw new \InvalidArgumentException('Invalid time value: '.$time);
         }
         if ($level < 1 || $level > 2) {
             throw new \InvalidArgumentException('Invalid level value: '.$level);

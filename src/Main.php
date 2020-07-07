@@ -1,5 +1,5 @@
 <?php
-namespace Yakub\WorkingTime;
+namespace Yakub\CronTime;
 
 /**
  * Main class
@@ -34,9 +34,9 @@ final class Main {
 		}
 	}
 
-	public function isExecutable(string $time = null): bool {
+	public function isExecutable(string $time = 'now'): bool {
 		try {
-			$date = new \DateTime($time ?? 'now');
+			$date = new \DateTime($time);
         } catch (\Exception $e) {
             throw new \InvalidArgumentException('Invalid time value: '.$time);
         }
@@ -56,9 +56,9 @@ final class Main {
 		return $ret;
 	}
 
-	public function getOpenDuration(string $from, string $to = null): int {
+	public function getOpenDuration(string $from, string $to = 'now'): int {
 		try {
-			$toDate = new \DateTime(is_null($to) ? 'now' : $to);
+			$toDate = new \DateTime($to);
 			$fromDate = new \DateTime($from);
         } catch (\Exception $e) {
             throw new \InvalidArgumentException('Invalid from or to value: '.$from.' '.$to);
@@ -89,9 +89,9 @@ final class Main {
 		return $ret;
 	}
 
-	public function getFutureOpenDateTime(int $forSeconds = 0, string $from = null): ?\DateTime {
+	public function getFutureOpenDateTime(int $forSeconds, string $from = 'now'): ?\DateTime {
 		try {
-			$fromDate = new \DateTime(is_null($from) ? 'now' : $from);
+			$fromDate = new \DateTime($from);
         } catch (\Exception $e) {
             throw new \InvalidArgumentException('Invalid from value: '.$from);
 		}
@@ -136,9 +136,9 @@ final class Main {
 		return $ret;
 	}
 
-	public function getScheduleForOpenedDays(int $closestOpenDays = 5, string $from = null): array {
+	public function getScheduleForOpenedDays(int $closestOpenDays = 5, string $from = 'now'): array {
 		try {
-			$fromDate = new \DateTime(is_null($from) ? 'now' : $from);
+			$fromDate = new \DateTime($from);
         } catch (\Exception $e) {
             throw new \InvalidArgumentException('Invalid from value: '.$from);
 		}
