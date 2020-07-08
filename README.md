@@ -1,6 +1,6 @@
 # cron-time
 
-> Cron time helping work with group of crons and get information like is executable or duration between opened crons
+> Cron time helps with working with group of crons and return information like if it's executable or duration between opened crons.
 
 **Build status**
 
